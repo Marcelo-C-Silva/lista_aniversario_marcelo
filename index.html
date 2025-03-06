@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de Presentes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Lista de Presentes</h1>
+        <div class="row" id="product-list">
+            <!-- Os cards serão inseridos aqui via JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            { name: "Produto 1", image: "https://via.placeholder.com/150", link: "#" },
+            { name: "Produto 2", image: "https://via.placeholder.com/150", link: "#" },
+            { name: "Produto 3", image: "https://via.placeholder.com/150", link: "#" }
+        ];
+
+        const productList = document.getElementById("product-list");
+
+        products.forEach(product => {
+            const card = `
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">${product.name}</h5>
+                            <a href="${product.link}" class="btn btn-primary" target="_blank">Ver produto</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            productList.innerHTML += card;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
